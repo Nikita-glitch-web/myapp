@@ -1,3 +1,4 @@
+
 var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
@@ -6,10 +7,8 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-var formRouter = require("./routes/form");
 
 var app = express();
-
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -40,9 +39,9 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-const port = 3000;
+const port = 3001;
 
-app.post("/submit-form", (req, res) => {
+app.post("/test-route", (req, res) => {
   const { name, email, message } = req.body;
   console.log(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
   res.send("Form submitted successfully!");
